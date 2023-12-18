@@ -42,7 +42,7 @@ function App() {
   );
 
   return (
-    <section>
+    <section className="container">
       <button
         onClick={() => setIsFakeDark((isFakeDark) => !isFakeDark)}
         className="btn-fake-dark-mode"
@@ -65,17 +65,19 @@ function App() {
 
 function Header({ posts, onClearPosts, searchQuery, setSearchQuery }) {
   return (
-    <header>
-      <h1>
+    <header className="row text-center">
+      <h1 className="col-md-6 col-sm-6">
         <span>⚛️</span>The Atomic Blog
       </h1>
-      <div>
+      <div className="row d-flex">
         <Results posts={posts} />
         <SearchPosts
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
         />
-        <button onClick={onClearPosts}>Clear posts</button>
+        <button onClick={onClearPosts} className="col-lg-12 col-md-6 col-sm-6">
+          Clear posts
+        </button>
       </div>
     </header>
   );
@@ -84,6 +86,7 @@ function Header({ posts, onClearPosts, searchQuery, setSearchQuery }) {
 function SearchPosts({ searchQuery, setSearchQuery }) {
   return (
     <input
+      className="col-lg-12 col-md-6 col-sm-6"
       value={searchQuery}
       onChange={(e) => setSearchQuery(e.target.value)}
       placeholder="Search posts..."
@@ -92,12 +95,14 @@ function SearchPosts({ searchQuery, setSearchQuery }) {
 }
 
 function Results({ posts }) {
-  return <p>🚀 {posts.length} atomic posts found</p>;
+  return (
+    <p className="col-lg-12 col-md-6">🚀 {posts.length} atomic posts found</p>
+  );
 }
 
 function Main({ posts, onAddPost }) {
   return (
-    <main>
+    <main className="container">
       <FormAddPost onAddPost={onAddPost} />
       <Posts posts={posts} />
     </main>
@@ -125,13 +130,15 @@ function FormAddPost({ onAddPost }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="row">
       <input
+        className="col form-control"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Post title"
       />
       <textarea
+        className="form-control"
         value={body}
         onChange={(e) => setBody(e.target.value)}
         placeholder="Post body"
@@ -143,9 +150,9 @@ function FormAddPost({ onAddPost }) {
 
 function List({ posts }) {
   return (
-    <ul>
+    <ul className="row">
       {posts.map((post, i) => (
-        <li key={i}>
+        <li key={i} className="col-lg-12 col-sm-12">
           <h3>{post.title}</h3>
           <p>{post.body}</p>
         </li>
