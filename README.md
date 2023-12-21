@@ -15,4 +15,4 @@ Search functionality to find blogs based on keywords
 Responsive design for optimal viewing on different devices
 Dark and light themes: Choose your preferred theme for a comfortable reading experience.
 
-Here's a link to the live app:
+Here's a link to the live app: https://glistening-melomakarona-ebb12a.netlify.app/
